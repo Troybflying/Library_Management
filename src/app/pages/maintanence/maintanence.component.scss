@@ -1,0 +1,13 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    margin-left: 1rem;
+  }

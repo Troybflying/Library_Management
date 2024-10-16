@@ -1,0 +1,76 @@
+<div class="p-8 bg-gray-100 min-h-screen flex flex-col justify-between">
+    <!-- Top Navigation Buttons -->
+    <div class="flex justify-between items-center mb-6">
+      <!-- Home Button -->
+      <button
+        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        routerLink="/admin/homepage"
+      >
+        Home
+      </button>
+  
+      <h1 class="text-2xl font-bold text-center">Reports</h1>
+    </div>
+  
+    <!-- Report Sections -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-grow">
+      <!-- Master List of Books -->
+      <div class="bg-white p-4 shadow-md rounded-lg">
+        <h2 class="text-xl font-bold mb-4">Master List of Books</h2>
+        <ul>
+          <li *ngFor="let book of masterListOfBooks" class="py-1 border-b">{{ book.title }}</li>
+        </ul>
+      </div>
+  
+      <!-- Master List of Movies -->
+      <div class="bg-white p-4 shadow-md rounded-lg">
+        <h2 class="text-xl font-bold mb-4">Master List of Movies</h2>
+        <ul>
+          <li *ngFor="let movie of masterListOfMovies" class="py-1 border-b">{{ movie.title }}</li>
+        </ul>
+      </div>
+  
+      <!-- Master List of Memberships -->
+      <div class="bg-white p-4 shadow-md rounded-lg">
+        <h2 class="text-xl font-bold mb-4">Master List of Memberships</h2>
+        <ul>
+          <li *ngFor="let member of masterListOfMemberships" class="py-1 border-b">{{ member.name }}</li>
+        </ul>
+      </div>
+  
+      <!-- Active Issues -->
+      <div class="bg-white p-4 shadow-md rounded-lg">
+        <h2 class="text-xl font-bold mb-4">Active Issues</h2>
+        <ul>
+          <li *ngFor="let issue of activeIssues" class="py-1 border-b">{{ issue.bookTitle }}</li>
+        </ul>
+      </div>
+  
+      <!-- Overdue Returns -->
+      <div class="bg-white p-4 shadow-md rounded-lg">
+        <h2 class="text-xl font-bold mb-4">Overdue Returns</h2>
+        <ul>
+          <li *ngFor="let overdue of overdueReturns" class="py-1 border-b">{{ overdue.bookTitle }}</li>
+        </ul>
+      </div>
+  
+      <!-- Pending Issue Requests -->
+      <div class="bg-white p-4 shadow-md rounded-lg">
+        <h2 class="text-xl font-bold mb-4">Pending Issue Requests</h2>
+        <ul>
+          <li *ngFor="let request of pendingIssueRequests" class="py-1 border-b">{{ request.bookTitle }}</li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- Bottom Logout Button -->
+    <div class="flex justify-end mt-6">
+      <button
+        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
+        routerLink="/pages/login"
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+  

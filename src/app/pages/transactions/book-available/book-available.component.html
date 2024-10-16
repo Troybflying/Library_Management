@@ -1,0 +1,61 @@
+<div class="p-4 bg-white shadow-md rounded-lg">
+    <!-- Search Fields -->
+    <div class="flex space-x-4 mb-4">
+      <div class="flex flex-col">
+        <label for="authorSearch" class="mb-1 font-bold">Author Name</label>
+        <input
+          [(ngModel)]="authorSearch"
+          (input)="onSearch()"
+          list="authorSuggestions"
+          class="border border-gray-300 rounded p-2"
+          id="authorSearch"
+          placeholder="Search by Author"
+        />
+        <datalist id="authorSuggestions">
+          <option *ngFor="let book of books" [value]="book.authorName"></option>
+        </datalist>
+      </div>
+  
+      <div class="flex flex-col">
+        <label for="bookSearch" class="mb-1 font-bold">Book Name</label>
+        <input
+          [(ngModel)]="bookSearch"
+          (input)="onSearch()"
+          list="bookSuggestions"
+          class="border border-gray-300 rounded p-2"
+          id="bookSearch"
+          placeholder="Search by Book"
+        />
+        <datalist id="bookSuggestions">
+          <option *ngFor="let book of books" [value]="book.bookName"></option>
+        </datalist>
+      </div>
+    </div>
+  
+    <!-- Buttons -->
+    <div class="flex space-x-4 mb-4">
+      <button (click)="onSearch()" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Search</button>
+      <button (click)="onCancel()" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">Cancel</button>
+    </div>
+  
+    <!-- Search Results Table -->
+    <table *ngIf="searchResults.length > 0" class="min-w-full bg-white shadow-md rounded-lg">
+      <thead>
+        <tr>
+          <th class="text-left py-2 px-4 border-b">Serial Number</th>
+          <th class="text-left py-2 px-4 border-b">Book Name</th>
+          <th class="text-left py-2 px-4 border-b">Author Name</th>
+          <th class="text-left py-2 px-4 border-b">Availability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of searchResults; let i = index">
+          <td class="py-2 px-4 border-b">{{ i + 1 }}</td>
+          <td class="py-2 px-4 border-b">{{ book.bookName }}</td>
+          <td class="py-2 px-4 border-b">{{ book.authorName }}</td>
+          <td class="py-2 px-4 border-b">{{ checkAvailability(book.copies) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

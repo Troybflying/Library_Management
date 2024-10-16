@@ -1,0 +1,58 @@
+<div class="p-4 bg-gray-100 min-h-screen flex flex-col">
+    <!-- Main Menu Bar -->
+    <div class="flex justify-between items-center bg-blue-600 text-white py-4 px-6 shadow-lg">
+      <h1 class="text-2xl font-bold">Maintenance</h1>
+      <button
+        class="bg-white text-blue-600 py-2 px-4 rounded hover:bg-gray-200"
+        (click)="navigateToHomepage()"
+      >
+        Go to Homepage
+      </button>
+    </div>
+  
+    <!-- Sidebar and Content Layout -->
+    <div class="flex mt-6">
+      <!-- Sidebar -->
+      <div class="w-1/4 bg-white shadow-md p-4 rounded-lg">
+        <!-- Membership Dropdown -->
+        <div class="mb-4">
+          <button class="w-full text-left font-bold py-2 px-4 rounded bg-gray-200 hover:bg-gray-300" (click)="toggleDropdown('membership')">
+            Membership
+          </button>
+          <div *ngIf="dropdownState.membership" class="mt-2 ml-4">
+            <button [routerLink]="['add-membership']" class="block w-full text-left py-1 px-2 hover:bg-gray-100">Add Membership</button>
+            <button class="block w-full text-left py-1 px-2 hover:bg-gray-100">Remove Membership</button>
+          </div>
+        </div>
+  
+        <!-- Books/Movies Dropdown -->
+        <div class="mb-4">
+          <button class="w-full text-left font-bold py-2 px-4 rounded bg-gray-200 hover:bg-gray-300" (click)="toggleDropdown('booksMovies')">
+            Books/Movies
+          </button>
+          <div *ngIf="dropdownState.booksMovies" class="mt-2 ml-4">
+            <button class="block w-full text-left py-1 px-2 hover:bg-gray-100">Add Book/Movie</button>
+            <button class="block w-full text-left py-1 px-2 hover:bg-gray-100">Remove Book/Movie</button>
+          </div>
+        </div>
+  
+        <!-- User Management Dropdown -->
+        <div class="mb-4">
+          <button class="w-full text-left font-bold py-2 px-4 rounded bg-gray-200 hover:bg-gray-300" (click)="toggleDropdown('userManagement')">
+            User Management
+          </button>
+          <div *ngIf="dropdownState.userManagement" class="mt-2 ml-4">
+            <button class="block w-full text-left py-1 px-2 hover:bg-gray-100">Add User</button>
+            <button class="block w-full text-left py-1 px-2 hover:bg-gray-100">Remove User</button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Main Content Area -->
+      <div class="flex-1 bg-white shadow-md p-4 ml-4 rounded-lg">
+        <router-outlet></router-outlet>
+       
+      </div>
+    </div>
+  </div>
+  

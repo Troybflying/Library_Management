@@ -1,0 +1,99 @@
+<div class="p-4 bg-white shadow-md rounded-lg">
+    <!-- Search Fields -->
+    <div class="flex space-x-4 mb-4">
+      <!-- Author Name Field -->
+      <div class="flex flex-col">
+        <label for="authorSearch" class="mb-1 font-bold">Author Name</label>
+        <input
+          [(ngModel)]="authorSearch"
+          (input)="onSearch()"
+          list="authorSuggestions"
+          class="border border-gray-300 rounded p-2"
+          id="authorSearch"
+          placeholder="Search by Author"
+        />
+        <datalist id="authorSuggestions">
+          <option *ngFor="let book of books" [value]="book.authorName"></option>
+        </datalist>
+      </div>
+  
+      <!-- Book Name Field -->
+      <div class="flex flex-col">
+        <label for="bookSearch" class="mb-1 font-bold">Book Name</label>
+        <input
+          [(ngModel)]="bookSearch"
+          (input)="onSearch()"
+          list="bookSuggestions"
+          class="border border-gray-300 rounded p-2"
+          id="bookSearch"
+          placeholder="Search by Book"
+        />
+        <datalist id="bookSuggestions">
+          <option *ngFor="let book of books" [value]="book.bookName"></option>
+        </datalist>
+      </div>
+  
+      <!-- Issue Date Field -->
+      <div class="flex flex-col">
+        <label for="issueDate" class="mb-1 font-bold">Issue Date</label>
+        <input type="date" id="issueDate" class="border border-gray-300 rounded p-2" />
+      </div>
+  
+      <!-- Return Date Field -->
+      <div class="flex flex-col">
+        <label for="returnDate" class="mb-1 font-bold">Return Date</label>
+        <input type="date" id="returnDate" class="border border-gray-300 rounded p-2" />
+      </div>
+  
+      <!-- Actual Return Date Field -->
+      <div class="flex flex-col">
+        <label for="actualReturnDate" class="mb-1 font-bold">Actual Return Date</label>
+        <input type="date" id="actualReturnDate" class="border border-gray-300 rounded p-2" />
+      </div>
+  
+      <!-- Fine Calculated Field -->
+      <div class="flex flex-col">
+        <label for="fineCalculated" class="mb-1 font-bold">Fine Calculated</label>
+        <input type="number" id="fineCalculated" class="border border-gray-300 rounded p-2" placeholder="Fine Amount" />
+      </div>
+  
+      <!-- Fine Paid Field -->
+      
+    </div>
+    <div>
+        <div class="flex flex-col">
+            <label for="finePaid" class="mb-1 font-bold">Fine Paid</label>
+            <div class="flex items-center">
+              <input type="checkbox" id="finePaid" class="mr-2" />
+              <label for="finePaid">Paid</label>
+            </div>
+          </div>
+    </div>
+  
+    <!-- Buttons -->
+    <div class="flex space-x-4 mb-4">
+      <button (click)="onSearch()" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Search</button>
+      <button (click)="onCancel()" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">Cancel</button>
+    </div>
+  
+    <!-- Search Results Table -->
+    <table *ngIf="searchResults.length > 0" class="min-w-full bg-white shadow-md rounded-lg">
+      <thead>
+        <tr>
+          <th class="text-left py-2 px-4 border-b">Serial Number</th>
+          <th class="text-left py-2 px-4 border-b">Book Name</th>
+          <th class="text-left py-2 px-4 border-b">Author Name</th>
+          <th class="text-left py-2 px-4 border-b">Availability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of searchResults; let i = index">
+          <td class="py-2 px-4 border-b">{{ i + 1 }}</td>
+          <td class="py-2 px-4 border-b">{{ book.bookName }}</td>
+          <td class="py-2 px-4 border-b">{{ book.authorName }}</td>
+          <td class="py-2 px-4 border-b">{{ checkAvailability(book.copies) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

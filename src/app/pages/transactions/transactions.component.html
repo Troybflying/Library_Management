@@ -1,0 +1,41 @@
+<div class="min-h-screen flex flex-col bg-gray-100">
+    <!-- Menu Bar -->
+    <div class="bg-blue-600 text-white py-4 px-8 flex justify-between items-center shadow-md">
+      <h1 class="text-2xl font-bold">TRANSACTIONS</h1>
+      <div class="flex items-center space-x-4">
+        <button routerLink="/admin/homepage"  class="text-white hover:text-gray-300 focus:outline-none">
+          <!-- Home Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9.75l7.516-6.022a1.5 1.5 0 011.968 0L20 9.75M4 10v10a1 1 0 001 1h5m0-6h4m5 6h5a1 1 0 001-1V10M10 19v-6m4 6v-6" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  
+    <!-- Main Content Area with Sidebar -->
+    <div class="flex flex-1">
+      <!-- Sidebar -->
+      <div class="w-1/5 bg-gray-200 p-4 shadow-md">
+        <div class="flex flex-col space-y-4">
+          <a routerLink="book-available" class="bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-400">
+            Book Available
+          </a>
+          <a routerLink="issue-book" class="bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-400">
+            Issue Book
+          </a>
+          <a routerLink="return-book" class="bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-400">
+            Return Book
+          </a>
+          <a routerLink="pay-fine" class="bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-400">
+            Pay Fine
+          </a>
+        </div>
+      </div>
+  
+      <!-- Main Content Area where components will be loaded -->
+      <div class="flex-1 p-8 bg-white">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  

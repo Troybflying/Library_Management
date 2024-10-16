@@ -1,0 +1,62 @@
+<div class="p-4 bg-white shadow-md rounded-lg">
+    <form (ngSubmit)="onConfirm()">
+      <!-- First Name Field -->
+      <div class="mb-4">
+        <label for="firstName" class="block font-bold">First Name</label>
+        <input type="text" id="firstName" [(ngModel)]="firstName" name="firstName" required class="border border-gray-300 rounded p-2 w-full"/>
+      </div>
+  
+      <!-- Last Name Field -->
+      <div class="mb-4">
+        <label for="lastName" class="block font-bold">Last Name</label>
+        <input type="text" id="lastName" [(ngModel)]="lastName" name="lastName" required class="border border-gray-300 rounded p-2 w-full"/>
+      </div>
+  
+      <!-- Contact Name Field -->
+      <div class="mb-4">
+        <label for="contactName" class="block font-bold">Contact Number</label>
+        <input type="text" id="contactName" [(ngModel)]="contactNumber" name="contactName" required class="border border-gray-300 rounded p-2 w-full"/>
+      </div>
+  
+      <!-- Contact Address Field -->
+      <div class="mb-4">
+        <label for="contactAddress" class="block font-bold">Contact Address</label>
+        <input type="text" id="contactAddress" [(ngModel)]="contactAddress" name="contactAddress" required class="border border-gray-300 rounded p-2 w-full"/>
+      </div>
+  
+      <!-- Aadhaar Number Field -->
+      <div class="mb-4">
+        <label for="aadhaarNumber" class="block font-bold">Aadhaar Number</label>
+        <input type="text" id="aadhaarNumber" [(ngModel)]="aadhaarNumber" name="aadhaarNumber" required class="border border-gray-300 rounded p-2 w-full"/>
+      </div>
+  
+      <!-- Start Date Field -->
+      <div class="mb-4">
+        <label for="startDate" class="block font-bold">Start Date</label>
+        <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate" required class="border border-gray-300 rounded p-2 w-full"/>
+      </div>
+  
+      <!-- End Date Field -->
+      <div class="mb-4">
+        <label for="endDate" class="block font-bold">End Date</label>
+        <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate" required class="border border-gray-300 rounded p-2 w-full"/>
+      </div>
+  
+      <!-- Membership Duration Field -->
+      <div class="mb-4">
+        <label class="block font-bold">Membership Duration</label>
+        <div class="flex space-x-4">
+          <label><input type="radio" [(ngModel)]="membershipDuration" name="membershipDuration" value="6 Months" required> 6 Months</label>
+          <label><input type="radio" [(ngModel)]="membershipDuration" name="membershipDuration" value="1 Year"> 1 Year</label>
+          <label><input type="radio" [(ngModel)]="membershipDuration" name="membershipDuration" value="2 Years"> 2 Years</label>
+        </div>
+      </div>
+  
+      <!-- Buttons -->
+      <div class="flex space-x-4">
+        <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Confirm</button>
+        <button type="button" (click)="onCancel()" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">Cancel</button>
+      </div>
+    </form>
+  </div>
+  
