@@ -9,6 +9,7 @@ import { PayFineComponent } from './pages/transactions/pay-fine/pay-fine.compone
 import { MaintanenceComponent } from './pages/maintanence/maintanence.component';
 import { AddMembershipComponent } from './pages/maintanence/add-membership/add-membership.component';
 import { ReportComponent } from './pages/report/report.component';
+import { HomeComponent } from './user/home/home.component';
 
 export const routes: Routes = [
     
@@ -16,7 +17,7 @@ export const routes: Routes = [
     {path:'pages/login',component:LoginComponent, pathMatch:'full'},
 
     {path:'admin/homepage', component:HomepageComponent, pathMatch:'full'},
-    {path:'user/homepage', component:HomepageComponent, pathMatch:'full'},
+    {path:'user/homepage', component:HomeComponent, pathMatch:'full'},
     {path:'pages/report', component:ReportComponent, pathMatch:'full'},
 
     { 
